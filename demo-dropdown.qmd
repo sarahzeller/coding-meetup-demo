@@ -1,0 +1,82 @@
+---
+title: "Select Tab Example"
+
+format:
+  html:
+    self-contained: true
+
+filters:
+  - select-tabset
+---
+
+## Tabsets driven by a `select`
+
+This filter adds a tabset which can be controlled via a `select` element 😎.
+
+::: {.callout-important}
+## Check copyright
+- [ ] check copyright for `panel-tabset.lua` (© posit 2022)
+:::
+
+## The traditional way
+That's how regular tabset look like:
+
+::: {.panel-tabset}
+### Dresden
+
+Tab content on Dresden.
+
+### Berlin
+
+Berlin has a tab pane as well.
+
+:::
+
+## Now – the same, but controlled by a `select` 🤙
+
+Using the `quarto-select-tabset` [filter](https://github.com/jakoblistabarth/quarto-select-tabset) , you can create a tabset that is controlled by a select element. 
+The `option-label` attribute is used to set the label of the default option in the select element.
+
+
+This is how a similar component controlled by a select looks like.
+
+::: {.panel-select option-label="Select a city …"}
+
+### Dresden
+
+Dresden Content. With some paragraphs.
+
+And even a code chunk!
+
+```{r}
+#| label: test-chunk
+print("test")
+```
+
+### Berlin
+
+The second tab pane is all about Berlin.
+
+### Munich
+
+This is the 3rd pane. Munich content goes here.
+
+:::
+
+## One more time …
+
+::: {.panel-select}
+
+### Dresden
+
+A second time a tab pane with the same name to test for possible conflicts.
+
+### Berlin
+
+Berlin a second time to test possible duplicates
+
+### Munich
+
+And once more Munich to test possible duplicates
+
+:::
