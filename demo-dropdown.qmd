@@ -4,44 +4,66 @@ title: "Select Tab Example"
 format:
   html:
     self-contained: true
+  pdf:
+    toc: true
+  typst: 
+    toc: true
 
 filters:
   - select-tabset
+bibliography: references.bib
 ---
 
 ## Tabsets driven by a `select`
 
-This filter adds a tabset which can be controlled via a `select` element 😎.
+This filter adds a tabset which can be controlled via a `select` element 😎[@assertthat] .
 
-::: {.callout-important}
+::: callout-important
 ## Check copyright
-- [ ] check copyright for `panel-tabset.lua` (© posit 2022)
+
+-   [ ] check copyright for `panel-tabset.lua` (© posit 2022)
 :::
 
 ## The traditional way
+
 That's how regular tabset look like:
 
-::: {.panel-tabset}
+::: panel-tabset
 ### Dresden
 
 Tab content on Dresden.
+
+```{r}
+data(mtcars)
+plot(mtcars$mpg, mtcars$wt)
+
+```
 
 ### Berlin
 
 Berlin has a tab pane as well.
 
+```{mermaid}
+
+flowchart TD
+    A[Start] --> B{Is it?}
+    B -->|Yes| C[OK]
+    C --> D[End]
+    B -->|No| E[Not OK]
+    E --> D
+
+```
+
+
 :::
 
 ## Now – the same, but controlled by a `select` 🤙
 
-Using the `quarto-select-tabset` [filter](https://github.com/jakoblistabarth/quarto-select-tabset) , you can create a tabset that is controlled by a select element. 
-The `option-label` attribute is used to set the label of the default option in the select element.
-
+Using the `quarto-select-tabset` [filter](https://github.com/jakoblistabarth/quarto-select-tabset) , you can create a tabset that is controlled by a select element. The `option-label` attribute is used to set the label of the default option in the select element.
 
 This is how a similar component controlled by a select looks like.
 
 ::: {.panel-select option-label="Select a city …"}
-
 ### Dresden
 
 Dresden Content. With some paragraphs.
@@ -60,13 +82,11 @@ The second tab pane is all about Berlin.
 ### Munich
 
 This is the 3rd pane. Munich content goes here.
-
 :::
 
 ## One more time …
 
-::: {.panel-select}
-
+::: panel-select
 ### Dresden
 
 A second time a tab pane with the same name to test for possible conflicts.
@@ -78,5 +98,4 @@ Berlin a second time to test possible duplicates
 ### Munich
 
 And once more Munich to test possible duplicates
-
 :::
