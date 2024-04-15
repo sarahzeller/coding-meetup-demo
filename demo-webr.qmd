@@ -1,0 +1,20 @@
+---
+title: webR in Quarto HTML Documents
+format: 
+  revealjs:
+    self-contained: true
+  html: 
+    self-contained: true
+engine: knitr
+filters:
+  - webr
+---
+
+# First slide
+
+This is a webr-enabled code cell in a Quarto HTML document.
+
+```{webr-r}
+fit = lm(mpg ~ am, data = mtcars)
+summary(fit)
+```
